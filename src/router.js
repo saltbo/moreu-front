@@ -23,12 +23,12 @@ let router = new Router({
       component: () => import('./views/Signup.vue')
     },
     {
-      path: '/moreu/password_reset', name: 'reset_apply',
+      path: '/moreu/password-reset', name: 'reset_apply',
       meta: { title: "密码找回" },
       component: () => import('./views/ResetApply.vue')
     },
     {
-      path: '/moreu/password_reset/:token64', name: 'reset_confirm',
+      path: '/moreu/password-reset/:token64', name: 'reset_confirm',
       meta: { title: "密码找回" },
       component: () => import('./views/ResetConfirm.vue')
     },
