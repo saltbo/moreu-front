@@ -7,11 +7,36 @@ Vue.use(Router)
 let router = new Router({
   mode: 'history',
   routes: [
-    { path: '/moreu/login', name: 'signin', meta: { title: "用户登录" }, component: () => import('./views/Signin.vue') },
-    { path: '/moreu/join', name: 'signup', meta: { title: "用户注册" }, component: () => import('./views/Signup.vue') },
-    { path: '/moreu/password_reset', name: 'reset_apply', meta: { title: "密码找回" }, component: () => import('./views/ResetApply.vue') },
-    { path: '/moreu/password_reset/:token64', name: 'reset_confirm', meta: { title: "密码找回" }, component: () => import('./views/ResetConfirm.vue') },
-    { path: '/moreu/:username', name: 'profile', meta: { title: "用户详情" }, component: () => import('./views/Profile.vue') },
+    {
+      path: '/moreu/signin', name: 'signin',
+      meta: { title: "用户登录" },
+      component: () => import('./views/Signin.vue')
+    },
+    {
+      path: '/moreu/signin/:token64', name: 'activate',
+      meta: { title: "账户激活" },
+      component: () => import('./views/Activate.vue')
+    },
+    {
+      path: '/moreu/signup', name: 'signup',
+      meta: { title: "用户注册" },
+      component: () => import('./views/Signup.vue')
+    },
+    {
+      path: '/moreu/password_reset', name: 'reset_apply',
+      meta: { title: "密码找回" },
+      component: () => import('./views/ResetApply.vue')
+    },
+    {
+      path: '/moreu/password_reset/:token64', name: 'reset_confirm',
+      meta: { title: "密码找回" },
+      component: () => import('./views/ResetConfirm.vue')
+    },
+    {
+      path: '/moreu/:username', name: 'profile',
+      meta: { title: "用户详情" },
+      component: () => import('./views/Profile.vue')
+    },
   ]
 })
 
