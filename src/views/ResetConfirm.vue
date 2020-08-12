@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import moreu from "@/libs/moreu.js";
 export default {
   data() {
     var validatePass = (rule, value, callback) => {
@@ -74,7 +75,10 @@ export default {
           return;
         }
 
-        this.$axios.patch("/api/user/password", this.formItem).then((ret) => {
+        let email = this.formItem.email;
+        let token = this.formItem.token;
+        let password = this.formItem.password;
+        moreu.passwordReset(email, token, password).then((ret) => {
           this.$message({
             type: "success",
             message: "密码重置成功!",
@@ -85,7 +89,9 @@ export default {
     },
   },
   mounted() {
-    this.formItem = this.$route.query;
+    let token64 = this.$route.params.token64;
+    let [email, token] = atob(token64).split("|moreu|");
+    this.formItem = { email: email, token: token };
   },
 };
 </script>

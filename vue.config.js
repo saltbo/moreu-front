@@ -92,7 +92,7 @@ module.exports = {
         hotOnly: false,
         disableHostCheck: true,
         proxy: {
-            '/ubase/api': {
+            '/moreu/api': {
                 target: 'http://localhost:8081',
                 ws: true,
                 changeOrigin: true

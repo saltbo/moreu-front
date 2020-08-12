@@ -21,7 +21,7 @@
             </el-row>
             <el-row>
               <el-col :span="12">
-                <el-link type="primary" :underline="false" @click="goto('reset')">忘记密码</el-link>
+                <el-link type="primary" :underline="false" @click="goto('reset_apply')">忘记密码</el-link>
               </el-col>
               <el-col :span="12" style="text-align: right">
                 <el-link type="primary" :underline="false" @click="goto('signup')">注册账号</el-link>
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import moreu from "@/libs/moreu.js";
 export default {
   data() {
     return {
@@ -57,7 +58,9 @@ export default {
           return;
         }
 
-        this.$axios.post("/ubase/api/tokens", this.formItem).then((ret) => {
+        let email = this.formItem.email;
+        let password = this.formItem.password;
+        moreu.signin(email, password).then((ret) => {
           this.$message({
             type: "success",
             message: "登录成功!",
@@ -66,20 +69,6 @@ export default {
         });
       });
     },
-  },
-  mounted() {
-    let query = this.$route.query;
-    // 邮件点击激活处理
-    if (query.email && query.atoken) {
-      let body = { email: query.email, atoken: query.atoken };
-      this.$axios.patch("/api/user/resources", body).then((ret) => {
-        this.$set(this.formItem, "email", query.email);
-        this.$message({
-          type: "success",
-          message: "激活成功，请输入密码登录。",
-        });
-      });
-    }
   },
 };
 </script>

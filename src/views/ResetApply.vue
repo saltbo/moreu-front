@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import moreu from "@/libs/moreu.js";
 export default {
   data() {
     return {
@@ -50,15 +51,13 @@ export default {
           return;
         }
 
-        this.$axios
-          .post("/api/user/recover-tokens", this.formItem)
-          .then((ret) => {
-            this.$message({
-              type: "success",
-              message: "找回密码邮件发送成功!",
-            });
-            this.$router.push({ name: "signin" });
+        moreu.applyPasswordReset(this.formItem.email).then((ret) => {
+          this.$message({
+            type: "success",
+            message: "找回密码邮件发送成功!",
           });
+          this.$router.push({ name: "signin" });
+        });
       });
     },
   },

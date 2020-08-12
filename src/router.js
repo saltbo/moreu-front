@@ -7,10 +7,11 @@ Vue.use(Router)
 let router = new Router({
   mode: 'history',
   routes: [
-    { path: '/moreu/signin', name: 'signin', meta: { title: "用户登录" }, component: () => import('./views/users/Signin.vue') },
-    { path: '/moreu/signup', name: 'signup', meta: { title: "用户注册" }, component: () => import('./views/users/Signup.vue') },
-    { path: '/moreu/reset', name: 'reset', meta: { title: "密码找回" }, component: () => import('./views/users/Reset.vue') },
-    { path: '/moreu/resetpwd', name: 'resetpwd', meta: { title: "密码找回" }, component: () => import('./views/users/Resetpwd.vue') }
+    { path: '/moreu/login', name: 'signin', meta: { title: "用户登录" }, component: () => import('./views/Signin.vue') },
+    { path: '/moreu/join', name: 'signup', meta: { title: "用户注册" }, component: () => import('./views/Signup.vue') },
+    { path: '/moreu/password_reset', name: 'reset_apply', meta: { title: "密码找回" }, component: () => import('./views/ResetApply.vue') },
+    { path: '/moreu/password_reset/:token64', name: 'reset_confirm', meta: { title: "密码找回" }, component: () => import('./views/ResetConfirm.vue') },
+    { path: '/moreu/:username', name: 'profile', meta: { title: "用户详情" }, component: () => import('./views/Profile.vue') },
   ]
 })
 
