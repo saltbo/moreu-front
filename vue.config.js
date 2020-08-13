@@ -5,7 +5,7 @@ function resolve(dir) {
 
 module.exports = {
     // Project deployment base
-    publicPath: '/',
+    publicPath: '/moreu',
 
     // where to output built files
     // 打包后的输出目录

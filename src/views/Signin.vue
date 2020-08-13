@@ -45,6 +45,7 @@ export default {
           { type: "email", message: "请输入正确的邮箱地址", trigger: ["blur"] },
         ],
       },
+      redirect: "/",
       formItem: {},
     };
   },
@@ -61,14 +62,15 @@ export default {
         let email = this.formItem.email;
         let password = this.formItem.password;
         moreu.signin(email, password).then((ret) => {
-          this.$message({
-            type: "success",
-            message: "登录成功!",
-          });
-          this.$router.push({ name: "home" });
+          location.replace(this.redirect);
         });
       });
     },
+  },
+  mounted() {
+    if (this.$route.query.redirect) {
+      this.redirect = this.$route.query.redirect;
+    }
   },
 };
 </script>
