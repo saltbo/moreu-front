@@ -42,6 +42,13 @@ let moreu = {
             }).catch(reject)
         })
     },
+    signout() {
+        return new Promise((resolve, reject) => {
+            window.axios.delete('/moreu/api/tokens').then(ret => {
+                resolve()
+            }).catch(reject)
+        })
+    },
     find(username) {
         return new Promise((resolve, reject) => {
             window.axios.get(`/moreu/api/users/${username}`).then(ret => {

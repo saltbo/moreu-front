@@ -13,6 +13,11 @@ let router = new Router({
       component: () => import('./views/Signin.vue')
     },
     {
+      path: '/moreu/signout', name: 'signout',
+      meta: { title: "用户登出" },
+      component: () => import('./views/Signout.vue')
+    },
+    {
       path: '/moreu/signin/:token64', name: 'activate',
       meta: { title: "账户激活" },
       component: () => import('./views/Activate.vue')
