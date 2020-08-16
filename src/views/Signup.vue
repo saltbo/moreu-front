@@ -33,7 +33,6 @@
 </template>
 
 <script>
-import moreu from "@/libs/moreu.js";
 export default {
   data() {
     var validatePass = (rule, value, callback) => {
@@ -84,7 +83,7 @@ export default {
 
         let email = this.formItem.email;
         let password = this.formItem.password;
-        moreu.signup(email, password).then((ret) => {
+        this.$moreu.signup(email, password).then((ret) => {
           this.$message({
             type: "success",
             message: "注册成功!",

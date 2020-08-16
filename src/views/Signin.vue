@@ -35,7 +35,6 @@
 </template>
 
 <script>
-import moreu from "@/libs/moreu.js";
 export default {
   data() {
     return {
@@ -61,7 +60,7 @@ export default {
 
         let email = this.formItem.email;
         let password = this.formItem.password;
-        moreu.signin(email, password).then((ret) => {
+        this.$moreu.signin(email, password).then((ret) => {
           location.replace(this.redirect);
         });
       });

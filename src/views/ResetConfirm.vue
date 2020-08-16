@@ -33,7 +33,6 @@
 </template>
 
 <script>
-import moreu from "@/libs/moreu.js";
 export default {
   data() {
     var validatePass = (rule, value, callback) => {
@@ -78,7 +77,7 @@ export default {
         let email = this.formItem.email;
         let token = this.formItem.token;
         let password = this.formItem.password;
-        moreu.passwordReset(email, token, password).then((ret) => {
+        this.$moreu.passwordReset(email, token, password).then((ret) => {
           this.$message({
             type: "success",
             message: "密码重置成功!",

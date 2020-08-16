@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import moreu from "@/libs/moreu.js";
 export default {
   data() {
     return {
@@ -13,7 +12,7 @@ export default {
   },
   methods: {
     loadInfo(username) {
-      moreu.find(username).then((profile) => {
+      this.$moreu.profile().then((profile) => {
         this.profile = profile;
       });
     },

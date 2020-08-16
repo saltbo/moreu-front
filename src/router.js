@@ -42,6 +42,11 @@ let router = new Router({
       meta: { title: "用户详情" },
       component: () => import('./views/Profile.vue')
     },
+    {
+      path: '/moreu', name: 'profile',
+      meta: { title: "用户详情" },
+      component: () => import('./views/Profile.vue')
+    },
   ]
 })
 
