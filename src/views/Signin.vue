@@ -58,10 +58,9 @@ export default {
           return;
         }
 
-        let email = this.formItem.email;
-        let password = this.formItem.password;
-        this.$moreu.signin(email, password).then((ret) => {
-          location.replace(this.redirect);
+        this.$moreu.signin(this.formItem).then((ret) => {
+          console.log(111, ret);
+          // location.replace(this.redirect);
         });
       });
     },

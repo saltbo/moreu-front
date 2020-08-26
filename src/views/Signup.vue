@@ -18,6 +18,9 @@
           <el-form-item prop="password2">
             <el-input type="password" v-model="formItem.password2" placeholder="密码确认"></el-input>
           </el-form-item>
+          <el-form-item prop="invitation">
+            <el-input v-model="formItem.ticket" placeholder="邀请码"></el-input>
+          </el-form-item>
           <el-form-item>
             <el-row>
               <el-button type="primary" @click="signUp('formItem')" style="width: 100%;">注册账号</el-button>
@@ -81,9 +84,7 @@ export default {
           return;
         }
 
-        let email = this.formItem.email;
-        let password = this.formItem.password;
-        this.$moreu.signup(email, password).then((ret) => {
+        this.$moreu.signup(this.formItem).then((ret) => {
           this.$message({
             type: "success",
             message: "注册成功!",
