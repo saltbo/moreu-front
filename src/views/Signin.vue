@@ -10,7 +10,7 @@
 
         <el-form ref="formItem" :model="formItem" :rules="rules">
           <el-form-item prop="email">
-            <el-input v-model="formItem.email" placeholder="电子邮箱"></el-input>
+            <el-input v-model="formItem.email" placeholder="用户名或邮箱"></el-input>
           </el-form-item>
           <el-form-item prop="password">
             <el-input v-model="formItem.password" type="password" placeholder="密码" @keyup.enter.native="signIn('formItem')"></el-input>
@@ -39,10 +39,7 @@ export default {
   data() {
     return {
       rules: {
-        email: [
-          { required: true, message: "请输入邮箱地址", trigger: "blur" },
-          { type: "email", message: "请输入正确的邮箱地址", trigger: ["blur"] },
-        ],
+        email: [{ required: true, message: "请输入邮箱地址", trigger: "blur" }],
       },
       redirect: "/",
       formItem: {},
