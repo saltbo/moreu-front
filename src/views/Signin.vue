@@ -59,8 +59,7 @@ export default {
         }
 
         this.$moreu.signin(this.formItem).then((ret) => {
-          console.log(111, ret);
-          // location.replace(this.redirect);
+          location.replace(this.redirect);
         });
       });
     },
