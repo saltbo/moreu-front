@@ -14,6 +14,10 @@ module.exports = {
     // whether to use eslint-loader for lint on save.
     lintOnSave: false,
 
+    transpileDependencies: [
+        'moreu-jssdk',
+    ],
+
     // tweak internal webpack configuration.
     configureWebpack: config => {
         config.resolve = {
@@ -92,7 +96,7 @@ module.exports = {
         hotOnly: false,
         disableHostCheck: true,
         proxy: {
-            '/moreu/api': {
+            '/api': {
                 target: 'http://localhost:8081',
                 ws: true,
                 changeOrigin: true

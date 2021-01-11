@@ -12,8 +12,8 @@ export default {
   },
   methods: {
     loadInfo(username) {
-      this.$moreu.profile().then((profile) => {
-        this.profile = profile;
+      this.$moreu.users.userGet().then((ret) => {
+        this.profile = ret;
       });
     },
   },

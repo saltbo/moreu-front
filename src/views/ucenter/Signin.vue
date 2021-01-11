@@ -1,8 +1,8 @@
 <template>
   <div class="guest">
-    <el-row style="height: 150px;"></el-row>
-    <div style="width: 400px; margin: 0 auto;">
-      <el-card class="box-card" style="padding: 10px 20px;">
+    <el-row style="height: 150px"></el-row>
+    <div style="width: 400px; margin: 0 auto">
+      <el-card class="box-card" style="padding: 10px 20px">
         <div slot="header">
           <i class="icon el-icon-lock"></i>
           <p class="title">用户登录</p>
@@ -17,7 +17,7 @@
           </el-form-item>
           <el-form-item>
             <el-row>
-              <el-button type="primary" @click="signIn('formItem')" style="width: 100%;">登录</el-button>
+              <el-button type="primary" @click="signIn('formItem')" style="width: 100%">登录</el-button>
             </el-row>
             <el-row>
               <el-col :span="12">
@@ -55,7 +55,7 @@ export default {
           return;
         }
 
-        this.$moreu.signin(this.formItem).then((ret) => {
+        this.$moreu.tokens.tokensPost(this.formItem).then((ret) => {
           location.replace(this.redirect);
         });
       });
