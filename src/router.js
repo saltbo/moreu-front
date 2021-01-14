@@ -5,6 +5,17 @@ Vue.use(Router)
 let router = new Router({
   mode: 'history',
   routes: [
+    { path: '/', name: 'home', redirect: '/moreu/profile' },
+    {
+      path: '/moreu',
+      component: () => import('./views/ucore/layout.vue'),
+      children: [
+        { path: 'profile', name: 'profile', meta: { title: "用户详情" }, component: () => import('./views/ucenter/Profile.vue') },
+        { path: 'security', name: 'security', meta: { title: "账户安全" }, component: () => import('./views/ucenter/security.vue') },
+        { path: 'about', name: 'about', meta: { title: "关于" }, component: () => import('./views/ucenter/about.vue') },
+      ]
+    },
+
     { path: '/install', name: 'installer', meta: { title: "系统安装" }, component: () => import('./views/installer') },
     { path: '/moreu/signin', name: 'signin', meta: { title: "用户登录" }, component: () => import('./views/ucenter/Signin.vue') },
     { path: '/moreu/signout', name: 'signout', meta: { title: "用户登出" }, component: () => import('./views/ucenter/Signout.vue') },
@@ -13,7 +24,6 @@ let router = new Router({
     { path: '/moreu/password-reset', name: 'reset_apply', meta: { title: "密码找回" }, component: () => import('./views/ucenter/ResetApply.vue') },
     { path: '/moreu/password-reset/:token64', name: 'reset_confirm', meta: { title: "密码找回" }, component: () => import('./views/ucenter/ResetConfirm.vue') },
     { path: '/moreu/:username', name: 'profile', meta: { title: "用户详情" }, component: () => import('./views/ucenter/Profile.vue') },
-    { path: '/moreu', name: 'profile', meta: { title: "用户详情" }, component: () => import('./views/ucenter/Profile.vue') },
   ]
 })
 
