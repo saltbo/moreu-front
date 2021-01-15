@@ -1,25 +1,21 @@
 import Vue from 'vue';
-import { ConfigsApi, TokensApi, UsersApi } from "moreu-jssdk";
-
+import moreu from "moreu-jssdk";
 
 const Moreu = {
-    configs: new ConfigsApi(),
-    tokens: new TokensApi(),
-    users: new UsersApi(),
 }
 
 Moreu.install = function (Vue, options) {
-    Vue.moreu = Moreu;
-    window.moreu = Moreu;
+    Vue.moreu = moreu;
+    window.moreu = moreu;
     Object.defineProperties(Vue.prototype, {
         moreu: {
             get() {
-                return Moreu;
+                return moreu;
             }
         },
         $moreu: {
             get() {
-                return Moreu;
+                return moreu;
             }
         },
     });

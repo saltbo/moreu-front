@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     loadInfo() {
-      this.$moreu.users.userGet().then((ret) => {
+      this.$moreu.profileGet().then((ret) => {
         this.profile = ret.data.profile;
       });
     },
@@ -48,7 +48,7 @@ export default {
           return;
         }
 
-        this.$moreu.users.userProfilePut(this.profile).then((ret) => {
+        this.$moreu.updateProfile(this.profile).then((ret) => {
           this.$message({
             type: "success",
             message: "保存成功!",

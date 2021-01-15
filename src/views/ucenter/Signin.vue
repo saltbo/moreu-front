@@ -55,7 +55,7 @@ export default {
           return;
         }
 
-        this.$moreu.tokens.tokensPost(this.formItem).then((ret) => {
+        this.$moreu.signin(this.formItem).then((ret) => {
           location.replace(this.redirect);
         });
       });
